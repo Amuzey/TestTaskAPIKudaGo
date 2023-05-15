@@ -8,12 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    //MARK: - Private properties
+    private var eventListCollectionView = UICollectionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .red
     }
-
-
 }
-
