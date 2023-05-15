@@ -9,8 +9,6 @@ import Foundation
 
 // MARK: - EventsList
 struct EventsList: Codable {
-    let count: Int
-    let next: String
     let results: [Event]
 }
 

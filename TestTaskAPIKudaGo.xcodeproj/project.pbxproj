@@ -10,6 +10,7 @@
 		8A16D29A2A1113BA00C55C42 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A16D2992A1113BA00C55C42 /* NetworkDataFetcher.swift */; };
 		8A16D2A12A12382C00C55C42 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A16D2A02A12382C00C55C42 /* EventDetailsViewController.swift */; };
 		8A16D2B22A124D4100C55C42 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A16D2B12A124D4100C55C42 /* SnapKit */; };
+		8A16D2B92A12994400C55C42 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A16D2B82A12994400C55C42 /* UIImageView + Extension.swift */; };
 		8ACF64D12A0F65690090C728 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF64D02A0F65690090C728 /* AppDelegate.swift */; };
 		8ACF64D32A0F65690090C728 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF64D22A0F65690090C728 /* SceneDelegate.swift */; };
 		8ACF64D52A0F65690090C728 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF64D42A0F65690090C728 /* EventsListViewController.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		8A16D2992A1113BA00C55C42 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		8A16D2A02A12382C00C55C42 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		8A16D2B82A12994400C55C42 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		8ACF64CD2A0F65690090C728 /* TestTaskAPIKudaGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskAPIKudaGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ACF64D02A0F65690090C728 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ACF64D22A0F65690090C728 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8A16D2B72A12991D00C55C42 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8A16D2B82A12994400C55C42 /* UIImageView + Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		8ACF64C42A0F65690090C728 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +97,7 @@
 		8ACF64CF2A0F65690090C728 /* TestTaskAPIKudaGo */ = {
 			isa = PBXGroup;
 			children = (
+				8A16D2B72A12991D00C55C42 /* Extension */,
 				8ACF64E42A0F67710090C728 /* Application */,
 				8ACF64EA2A0F6E0D0090C728 /* Models */,
 				8ACF64ED2A0FC2DA0090C728 /* Views */,
@@ -227,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A16D2B92A12994400C55C42 /* UIImageView + Extension.swift in Sources */,
 				8A16D29A2A1113BA00C55C42 /* NetworkDataFetcher.swift in Sources */,
 				8ACF64E92A0F6A2B0090C728 /* NetworkService.swift in Sources */,
 				8ACF64D52A0F65690090C728 /* EventsListViewController.swift in Sources */,

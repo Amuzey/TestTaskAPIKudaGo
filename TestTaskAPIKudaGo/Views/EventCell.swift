@@ -11,54 +11,61 @@ import SnapKit
 class EventCell: UICollectionViewCell {
     //MARK: - Private properties
     private var networkService = NetworkService()
+    private var imageURL: String? {
+        didSet {
+            imageView.image = nil
+            activityIndicator.startAnimating()
+            updateImage()
+        }
+    }
     
     //MARK: - Public properties
     let imageView = UIImageView()
     let label = UILabel()
+    let activityIndicator = UIActivityIndicatorView()
     
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(imageView)
         contentView.addSubview(label)
-        imageView.contentMode = .scaleAspectFit
+        contentView.addSubview(activityIndicator)
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 15
+        imageView.contentMode = .scaleAspectFill
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
         imageView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
         }
         label.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
+            make.leading.equalToSuperview()
             make.trailing.equalToSuperview().offset(-10)
-            make.bottom.equalToSuperview().offset(-5)
+            make.bottom.equalToSuperview().offset(-15)
+        }
+        activityIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+        
     //MARK: - Methods
     func configure(with event: Event) {
-        imageView.image = UIImage(named: "1")
+        imageURL = event.images.first?.image
         label.text = event.shortTitle
+        label.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.textColor = .white
-        loadImage(event: event)
     }
     
-    //MARK: - Private Methods
-    private func loadImage(event: Event) {
-        guard let urlString = event.images.first?.image else { return }
-        if urlString != "https://kudago.com/media/images/event/82/bb/82bb410cca413007c5598f40c6ebd68c.jpg" {
-            networkService.fetchImage(urlString: urlString) { result in
-                switch result {
-                case .success(let image):
-                    self.imageView.image = UIImage(data: image)
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
+    private func updateImage() {
+        guard let imageURL = imageURL else { return }
+        imageView.downloadImage(from: imageURL, activityIndicator: activityIndicator)
     }
 }
+

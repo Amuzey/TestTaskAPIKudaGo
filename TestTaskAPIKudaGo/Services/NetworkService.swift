@@ -18,6 +18,7 @@ final class NetworkService {
             URLQueryItem(name: "fields", value: "title,dates,description,short_title,images"),
             URLQueryItem(name: "location", value: "ekb"),
             URLQueryItem(name: "page_size", value: "8"),
+            URLQueryItem(name: "actual_since", value: "1640970000"),
             URLQueryItem(name: "page", value: "\(page)")
         ]
         guard let url = components.url else { return }

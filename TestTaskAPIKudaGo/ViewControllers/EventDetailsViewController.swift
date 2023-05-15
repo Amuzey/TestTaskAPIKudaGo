@@ -18,6 +18,8 @@ class EventDetailsViewController: UIViewController {
     private let eventTitle = UILabel()
     private let eventDescription = UILabel()
     private let eventDate = UILabel()
+    private let activityIndicator = UIActivityIndicatorView()
+    private lazy var urlImage = event?.images.first?.image
     
     //MARK: - Lyfe cycles
     override func viewDidLoad() {
@@ -26,15 +28,17 @@ class EventDetailsViewController: UIViewController {
         view.backgroundColor = .systemGray
         setupContent()
         setupConstraint()
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        imageView.downloadImage(from: urlImage ?? "", activityIndicator: activityIndicator)
     }
     
     //MARK: - Private Methods
     private func setupContent() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = Date(timeIntervalSince1970: TimeInterval(event?.dates.first?.end ?? 0))
+        let date = Date(timeIntervalSince1970: TimeInterval(event?.dates.first?.start ?? 0))
         let endDateString = dateFormatter.string(from: date)
-        imageView.image = UIImage(named: "1")
         imageView.contentMode = .scaleAspectFit
         eventTitle.text = event?.title
         eventTitle.numberOfLines = 2
@@ -54,12 +58,16 @@ extension EventDetailsViewController {
         stakView.alignment = .top
         stakView.distribution = .fill
         stakView.spacing = 10
-        setupSubviews(imageView, stakView)
+        setupSubviews(imageView, stakView, activityIndicator)
         
         imageView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.height.equalTo(200)
+            make.height.equalTo(300)
+        }
+        activityIndicator.snp.makeConstraints { make in
+            make.centerXWithinMargins.equalToSuperview()
+            make.top.equalToSuperview().offset(250)
         }
         stakView.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp_bottomMargin).offset(20)
