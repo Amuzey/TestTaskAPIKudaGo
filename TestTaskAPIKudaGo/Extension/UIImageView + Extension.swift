@@ -17,7 +17,6 @@ extension UIImageView {
             activityIndicator?.stopAnimating()
             return
         }
-        
         DispatchQueue.global().async {
             guard let url = URL(string: urlString),
                   let data = try? Data(contentsOf: url),
