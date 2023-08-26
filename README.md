@@ -1,4 +1,4 @@
 # TestTaskAPIKudaGo
 TestTaskAPIKudaGo - это приложение, разработанное на языке Swift, которое позволяет пользователям ознакомится с событиями проходящими в городе Екатеринбург. Оно использует API KudaGo для получения событий и предоставляет возможность их детального просмотра. Для размещения элементов на экране используется SnapKit.
 
-<img src="[https://github-production-user-asset-6210df.s3.amazonaws.com/104350118/263459169-2e5c2d28-f60a-45f9-8aad-09ac40b633a6.png]" width="393" height="852">
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/104350118/263459169-2e5c2d28-f60a-45f9-8aad-09ac40b633a6.png" width="393" height="852">
